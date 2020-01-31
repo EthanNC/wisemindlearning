@@ -30,8 +30,8 @@ export const ProductPageTemplate = ({
       <h2
         className="has-text-weight-bold is-size-1"
         style={{
-          boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-          backgroundColor: '#f40',
+          boxShadow: '0.5rem 0 0 #86a9e9, -0.5rem 0 0 #86a9e9',
+          backgroundColor: '#86a9e9',
           color: 'white',
           padding: '1rem',
         }}
@@ -81,21 +81,6 @@ export const ProductPageTemplate = ({
                 </div>
               </div>
               <Testimonials testimonials={testimonials} />
-              <div
-                className="full-width-image-container"
-                style={{
-                  backgroundImage: `url(${
-                    fullImage.childImageSharp
-                      ? fullImage.childImageSharp.fluid.src
-                      : fullImage
-                  })`,
-                }}
-              />
-              <h2 className="has-text-weight-semibold is-size-2">
-                {pricing.heading}
-              </h2>
-              <p className="is-size-5">{pricing.description}</p>
-              <Pricing data={pricing.plans} />
             </div>
           </div>
         </div>

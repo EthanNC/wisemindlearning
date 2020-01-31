@@ -35,14 +35,13 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
-        className="navbar is-transparent"
-        role="navigation"
+        className="navbar is-fixed-top"
         aria-label="main-navigation"
       >
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+              <img src={logo} alt="WiseMindLearninf" style={{ width: '88px' }} />
             </Link>
             {/* Hamburger menu */}
             <div
@@ -64,29 +63,24 @@ const Navbar = class extends React.Component {
                 About
               </Link>
               <Link className="navbar-item" to="/products">
-                Products
+                Services
               </Link>
               <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
+                News
               </Link>
             </div>
             <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
+              <div className='navbar-item'>
+              <div className='field is-grouped'>
+                <p className='control'>
+                  <Link
+                    className='button is-primary is-outlined'
+                    to='/contact'>
+                            Contact Us
+                  </Link>
+                </p>
+              </div>
+            </div>
             </div>
           </div>
         </div>
