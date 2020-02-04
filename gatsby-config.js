@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Wise Mind Learning',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Dr. Krishnan helps learners develop personalized strategies to self-regulate their learning cognitive functioning (including executive function), emotions, and behavior.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

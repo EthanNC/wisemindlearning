@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
-import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const ProductPageTemplate = ({
@@ -13,10 +12,9 @@ export const ProductPageTemplate = ({
   heading,
   description,
   intro,
-  main,
+  //main,
   testimonials,
   fullImage,
-  pricing,
 }) => (
   <div className="content">
     <div
@@ -51,7 +49,7 @@ export const ProductPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <Features gridItems={intro.blurbs} />
-              <div className="columns">
+              {/* <div className="columns">
                 <div className="column is-7">
                   <h3 className="has-text-weight-semibold is-size-3">
                     {main.heading}
@@ -79,7 +77,7 @@ export const ProductPageTemplate = ({
                     </article>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <Testimonials testimonials={testimonials} />
             </div>
           </div>
@@ -97,13 +95,13 @@ ProductPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
-  main: PropTypes.shape({
-    heading: PropTypes.string,
-    description: PropTypes.string,
-    image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  }),
+  // main: PropTypes.shape({
+  //   heading: PropTypes.string,
+  //   description: PropTypes.string,
+  //   image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  //   image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  //   image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  // }),
   testimonials: PropTypes.array,
   fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   pricing: PropTypes.shape({
@@ -124,10 +122,9 @@ const ProductPage = ({ data }) => {
         heading={frontmatter.heading}
         description={frontmatter.description}
         intro={frontmatter.intro}
-        main={frontmatter.main}
+        // main={frontmatter.main}
         testimonials={frontmatter.testimonials}
         fullImage={frontmatter.full_image}
-        pricing={frontmatter.pricing}
       />
     </Layout>
   )
@@ -161,49 +158,16 @@ export const productPageQuery = graphql`
           blurbs {
             image {
               childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
+                fluid(maxWidth: 400, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
+            header
             text
           }
           heading
           description
-        }
-        main {
-          heading
-          description
-          image1 {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 526, quality: 92) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          image2 {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 526, quality: 92) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          image3 {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 1075, quality: 72) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
         }
         testimonials {
           author
@@ -216,17 +180,43 @@ export const productPageQuery = graphql`
             }
           }
         }
-        pricing {
-          heading
-          description
-          plans {
-            description
-            items
-            plan
-            price
-          }
-        }
       }
     }
   }
 `
+
+
+// main {
+//   heading
+//   description
+//   image1 {
+//     alt
+//     image {
+//       childImageSharp {
+//         fluid(maxWidth: 526, quality: 92) {
+//           ...GatsbyImageSharpFluid
+//         }
+//       }
+//     }
+//   }
+//   image2 {
+//     alt
+//     image {
+//       childImageSharp {
+//         fluid(maxWidth: 526, quality: 92) {
+//           ...GatsbyImageSharpFluid
+//         }
+//       }
+//     }
+//   }
+//   image3 {
+//     alt
+//     image {
+//       childImageSharp {
+//         fluid(maxWidth: 1075, quality: 72) {
+//           ...GatsbyImageSharpFluid
+//         }
+//       }
+//     }
+//   }
+// }

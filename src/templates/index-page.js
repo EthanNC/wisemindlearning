@@ -10,10 +10,7 @@ export const IndexPageTemplate = ({
   image,
   title,
   heading,
-  subheading,
   mainpitch,
-  description,
-  intro,
 }) => (
   <div>
     <div
@@ -71,7 +68,7 @@ export const IndexPageTemplate = ({
             <div className="column is-10 is-offset-1">
               <div className="content">
                 <div className="content">
-                  <div className="tile">
+                  <div className="tile ">
                     <h1 className="title">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
@@ -79,24 +76,59 @@ export const IndexPageTemplate = ({
                   </div>
                 </div>
                 <div className="columns">
-                  <div className="column is-12">
+                  <div className="column is-12 has-text-centered">
                     <h3 className="has-text-weight-semibold is-size-2">
                       {heading}
                     </h3>
-                    <p>{description}</p>
                   </div>
                 </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
+                <div className="tile is-ancestor">
+                  <div className="tile is-4 is-vertical is-parent">
+                    <div className="tile is-child box">
+                      <p className="title">{mainpitch.about.title}</p>
+                      <p className="subtitle has-text-weight-semibold">{mainpitch.about.text}</p>
+                      <Link className="btn" to="/about">
+                      Learn More
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="tile is-parent">
+                    <div className="tile is-child box">
+                      <figure className="image">
+                      <img style={{maxWidth: 400}} src={mainpitch.about.image.childImageSharp.fluid.src}/>
+                    </figure>
+                    </div>
+                  </div>
+                </div>
+                <div className="tile is-ancestor">
+                <div className="tile is-parent">
+                    <div className="tile is-child box">
+                      <figure className="image ">
+                      <img style={{maxWidth: 400}} src={mainpitch.service.image.childImageSharp.fluid.src}/>
+                    </figure>
+                    </div>
+                  </div>
+                  <div className="tile is-4 is-vertical is-parent">
+                    <div className="tile is-child box">
+                      <p className="title">{mainpitch.service.title}</p>
+                      <p className="subtitle has-text-weight-semibold">{mainpitch.service.text}</p>
+                      <Link className="btn" to="/about">
+                      Learn More
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                {/* <Features gridItems={intro.blurbs} /> */}
+                {/* <div className="columns">
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/products">
                       See All Services
                     </Link>
                   </div>
-                </div>
+                </div> */}
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                    News Feed
                   </h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
@@ -117,6 +149,7 @@ export const IndexPageTemplate = ({
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
+  tile1: PropTypes.object,
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
@@ -135,6 +168,7 @@ const IndexPage = ({ data }) => {
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
+        tile={frontmatter.tile1}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
@@ -171,6 +205,28 @@ export const pageQuery = graphql`
         mainpitch {
           title
           description
+          about{
+            title
+            text
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            } 
+          }
+          service{
+            title
+            text
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            } 
+          }
         }
         description
         intro {
@@ -191,3 +247,14 @@ export const pageQuery = graphql`
     }
   }
 `
+
+
+// tile1{
+//   image {
+//     childImageSharp {
+//       fluid(maxWidth: 1000, quality: 100) {
+//         ...GatsbyImageSharpFluid
+//       }
+//     }
+//   }
+// }
