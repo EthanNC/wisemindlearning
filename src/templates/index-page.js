@@ -5,9 +5,10 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const IndexPageTemplate = ({
-  image,
+image,
   title,
   heading,
   mainpitch,
@@ -95,7 +96,7 @@ export const IndexPageTemplate = ({
                   <div className="tile is-parent">
                     <div className="tile is-child box">
                       <figure className="image">
-                      <img style={{maxWidth: 400}} src={mainpitch.about.image.childImageSharp.fluid.src}/>
+                          <PreviewCompatibleImage imageInfo={mainpitch.about} />
                     </figure>
                     </div>
                   </div>
@@ -104,16 +105,17 @@ export const IndexPageTemplate = ({
                 <div className="tile is-parent">
                     <div className="tile is-child box">
                       <figure className="image ">
-                      <img style={{maxWidth: 400}} src={mainpitch.service.image.childImageSharp.fluid.src}/>
+                      <PreviewCompatibleImage imageInfo={mainpitch.service} />
                     </figure>
                     </div>
+                    
                   </div>
                   <div className="tile is-4 is-vertical is-parent">
                     <div className="tile is-child box">
                       <p className="title">{mainpitch.service.title}</p>
                       <p className="subtitle has-text-weight-semibold">{mainpitch.service.text}</p>
                       <Link className="btn" to="/about">
-                      Learn More
+                      See All Services
                       </Link>
                     </div>
                   </div>
