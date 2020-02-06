@@ -7,7 +7,7 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const AboutPageTemplate = ({ title, content, image, contentComponent }) => {
   const PageContent = contentComponent || Content
-
+  const imageObject = {image: image, ...image}
   return (
     <section className="section section--gradient">
       <div className="container">
@@ -22,7 +22,7 @@ export const AboutPageTemplate = ({ title, content, image, contentComponent }) =
           </div>
           <div className="column">
             <figure className="has-image-centered">
-              <PreviewCompatibleImage imageInfo={image}/>
+              <PreviewCompatibleImage imageInfo={imageObject}/>
             </figure>
           </div>
         </div>
@@ -32,9 +32,11 @@ export const AboutPageTemplate = ({ title, content, image, contentComponent }) =
 }
 
 AboutPageTemplate.propTypes = {
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
+
 }
 
 const AboutPage = ({ data }) => {

@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const ProductPageTemplate = ({
   image,
@@ -14,7 +13,6 @@ export const ProductPageTemplate = ({
   intro,
   //main,
   testimonials,
-  fullImage,
 }) => (
   <div className="content">
     <div
