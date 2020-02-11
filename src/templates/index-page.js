@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
-
 import Layout from '../components/Layout'
-import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
@@ -114,7 +112,7 @@ image,
                     <div className="tile is-child box">
                       <p className="title">{mainpitch.service.title}</p>
                       <p className="subtitle has-text-weight-semibold">{mainpitch.service.text}</p>
-                      <Link className="btn" to="/about">
+                      <Link className="btn" to="/products">
                       See All Services
                       </Link>
                     </div>
